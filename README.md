@@ -7,6 +7,8 @@ Simple server configuration to keep it up to date
 
 ## How to use
 
+@deprecated WIP
+
 clone this repo and setup a root cron to run periodic updates.
 
 I usually install these in `/opt`
