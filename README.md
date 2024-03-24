@@ -15,10 +15,12 @@ I usually install these in `/opt`
 cd /opt
 # as /opt is usually owned by root you have to create the directory first
 mkdir simple-server-configuration
-git clone
+git clone https://github.com/deep-green-code/simple-server-configuration.git
 cd simple-server-configuration
 ```
 
 ## Roadmap
 
 - [ ] detect OS and adapt command
+- [ ] create a setup script
+- [ ] list 
