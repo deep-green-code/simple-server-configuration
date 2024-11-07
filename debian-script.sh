@@ -33,13 +33,13 @@ fi
 
 if [ "$AUTOCLEAN" ] ; then
     if [ "$LOG" ] ; then
-        echo "${green}==>${reset} Cleaning...">>$LOGFILE;
+        echo "${green}==>${reset} Cleaning (autoclean)...">>$LOGFILE;
     fi
     sudo apt autoclean -y;
 fi
 if [ "$AUTOREMOVE" ] ; then
     if [ "$LOG" ] ; then
-        echo "${green}==>${reset} Cleaning...">>$LOGFILE;
+        echo "${green}==>${reset} Cleaning (autoremove)...">>$LOGFILE;
     fi
     sudo apt autoremove -y;
 fi
