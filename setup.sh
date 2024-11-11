@@ -19,21 +19,25 @@ systemctl enable clamav-freshclam
 echo "Setting up directories and permissions..."
 
 # Define variables
-SCRIPT_DIR="/usr/local/bin"
-LOG_DIR="/var/log"
+BASE_DIR="/usr/local/server_maintenance"
 SCRIPT_NAME="server_maintenance.sh"
-LOG_FILE="$LOG_DIR/server_maintenance.log"
+SCRIPT_PATH="$BASE_DIR/$SCRIPT_NAME"
+LOG_FILE="/var/log/server_maintenance.log"
+ENV_FILE=".env.example"
 
-# Ensure the script directory exists
-mkdir -p "$SCRIPT_DIR"
-mkdir -p "$LOG_DIR"
+# Create the base directory
+mkdir -p "$BASE_DIR"
+mkdir -p "$(dirname "$LOG_FILE")"
 
 # Copy the maintenance script and .env.example file to the script directory
-cp "$SCRIPT_NAME" "$SCRIPT_DIR/$SCRIPT_NAME"
-cp .env.example "$SCRIPT_DIR/.env"
+cp "$SCRIPT_NAME" "$SCRIPT_PATH"
+cp "$ENV_FILE" "$BASE_DIR/.env"
 
 # Set execute permissions on the maintenance script
-chmod +x "$SCRIPT_DIR/$SCRIPT_NAME"
+chmod +x "$SCRIPT_PATH"
+
+# Create a symlink in /usr/local/bin for easy access
+ln -sf "$SCRIPT_PATH" /usr/local/bin/server_maintenance
 
 # Create the log file and set permissions
 touch "$LOG_FILE"
@@ -53,4 +57,4 @@ $LOG_FILE {
 }
 EOL
 
-echo "Setup complete! Remember to customize your .env file in $SCRIPT_DIR."
+echo "Setup complete! Remember to customize your .env file in $BASE_DIR."
