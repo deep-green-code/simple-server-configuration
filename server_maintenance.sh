@@ -13,7 +13,7 @@ fi
 
 # Load environment variables from .env
 set -o allexport
-source .env
+source /usr/local/server_maintenance/.env
 set +o allexport
 
 # Initialize error logging function
