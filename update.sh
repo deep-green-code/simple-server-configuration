@@ -24,7 +24,8 @@ git pull origin main || { echo "Git pull failed! Exiting."; exit 1; }
 # Copy the updated files to the proper location
 echo "Copying updated files..."
 cp "$REPO_DIR/server_maintenance.sh" "$BASE_DIR/server_maintenance.sh"
-cp "$REPO_DIR/.env.example" "$BASE_DIR/.env"
+# TODO find a way to check if there is new lines in the .env.exemple and warn user
+#cp "$REPO_DIR/.env.example" "$BASE_DIR/.env"
 
 # Set proper permissions
 chmod +x "$BASE_DIR/server_maintenance.sh"
