@@ -102,4 +102,8 @@ if [ "$LOG" = true ]; then
     echo "${green}==>${reset} All Updates & Cleanups Finished" | tee -a "$LOGFILE"
 fi
 
+if [ "$SHUTDOWN" = true ]; then
+    shutdown -h
+fi
+
 exit 0
